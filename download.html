@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download · zsazsa CTI</title>
+  <meta name="description" content="Download zsazsa from GitHub. Clone the open-source repository and install it on top of your existing MISP infrastructure.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+        zsazsa <span class="sub">CTI</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="download.html" class="active">Download</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://github.com/cudeso/zsazsa/" class="gh" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="container">
+      <div class="kicker">Download</div>
+      <h1>Get zsazsa from GitHub</h1>
+      <p>zsazsa is open source. There are no binaries; you clone the repository and install it on top of your existing MISP infrastructure.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="grid grid-2" style="gap:32px; align-items:start;">
+
+        <div class="card">
+          <span class="feat-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+          <h3>Clone the repository</h3>
+          <p style="margin-bottom:18px;">The official source lives on GitHub under <code class="inline">cudeso/zsazsa</code>. Clone it as the <code class="inline">www-data</code> user inside your MISP custom application directory.</p>
+          <div class="prose" style="max-width:none;">
+            <pre><code>cd /var/www/MISP/misp-custom
+sudo -u www-data git clone \
+  https://github.com/cudeso/zsazsa/ zsazsa
+cd zsazsa
+sudo -u www-data bash docs/install.sh</code></pre>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:6px;">
+            <a href="https://github.com/cudeso/zsazsa/" class="btn btn-primary" target="_blank" rel="noopener">Open on GitHub</a>
+            <a href="https://github.com/cudeso/zsazsa/archive/refs/heads/main.zip" class="btn btn-ghost" target="_blank" rel="noopener">Download ZIP</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span>
+          <h3>What you need first</h3>
+          <p style="margin-bottom:14px;">zsazsa sits on top of MISP and does not install it for you. Have these ready:</p>
+          <ul class="tick-list">
+            <li>A MISP server to store CTI program data (<code class="inline">MISP_WEBAPP_URL</code>)</li>
+            <li>A MISP server running misp-scraper (<code class="inline">MISP_URL</code>)</li>
+            <li>Optional additional MISP servers as supplementary feeds</li>
+            <li>Python, able to create a virtual environment</li>
+          </ul>
+          <p style="margin-top:16px;"><a href="documentation.html">See the full installation guide →</a></p>
+        </div>
+
+      </div>
+
+      <div style="margin-top:40px;">
+        <div class="section-head">
+          <div class="kicker">Licence &amp; support</div>
+          <h2 style="font-size:1.6rem;">Open source, community-driven</h2>
+          <p>zsazsa is released under an open-source licence. Bug reports, feature requests and pull requests are welcome on GitHub. Issues and discussions are the best place to get help and to follow the project's direction.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><h3>Issues</h3><p>Report bugs and request features in the GitHub issue tracker.</p><p style="margin-top:10px;"><a href="https://github.com/cudeso/zsazsa/issues" target="_blank" rel="noopener">Open issues →</a></p></div>
+          <div class="card"><h3>Source &amp; releases</h3><p>Browse the code, releases and commit history on GitHub.</p><p style="margin-top:10px;"><a href="https://github.com/cudeso/zsazsa/" target="_blank" rel="noopener">View repository →</a></p></div>
+          <div class="card"><h3>Licence</h3><p>See the LICENSE file in the repository for the full terms.</p><p style="margin-top:10px;"><a href="https://github.com/cudeso/zsazsa/blob/main/LICENSE" target="_blank" rel="noopener">Read the licence →</a></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>Installed it? Configure your MISP connections next.</h2>
+        <p>Point zsazsa at your webapp and scraper MISP servers, then start collecting and producing.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="documentation.html" class="btn btn-light">Configuration guide</a>
+          <a href="features.html" class="btn btn-ghost">Explore features</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <span class="foot-brand">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+            zsazsa
+          </span>
+          <p class="foot-about">An open-source CTI program management and production platform built around MISP.</p>
+        </div>
+        <div>
+          <h4>Project</h4>
+          <a href="features.html">Features</a>
+          <a href="documentation.html">Documentation</a>
+          <a href="download.html">Download</a>
+          <a href="news.html">News</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cudeso/zsazsa/" target="_blank" rel="noopener">GitHub repository</a>
+          <a href="https://www.misp-project.org/" target="_blank" rel="noopener">MISP project</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> zsazsa project · Open source</span>
+        <span>Built on <a href="https://www.misp-project.org/" target="_blank" rel="noopener" style="display:inline;">MISP</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

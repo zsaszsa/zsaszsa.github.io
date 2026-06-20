@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features · zsazsa CTI</title>
+  <meta name="description" content="A tour of zsazsa: dashboard, stakeholder and requirement management, RFI workflow, data collection, intelligence products, statistics and CTI-CMM maturity signals.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+        zsazsa <span class="sub">CTI</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="features.html" class="active">Features</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="download.html">Download</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://github.com/cudeso/zsazsa/" class="gh" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="container">
+      <div class="kicker">Features</div>
+      <h1>Everything a CTI program needs, in one place</h1>
+      <p>The web app is split into practical working areas, from a live dashboard to complete publishing workflows for each product. Here is what each area covers.</p>
+    </div>
+  </header>
+
+  <!-- Quick capability grid -->
+  <section>
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card"><h3>Dashboard</h3><p>A live program snapshot: active PIRs/GIRs, stakeholder counts, the latest analyser run, 24-hour outcomes and pending scraper events. A built-in reference panel covers the Admiralty Scale, TLP and CTI evaluation criteria.</p></div>
+        <div class="card"><h3>Stakeholders</h3><p>Who consumes CTI output: role, organisation, contacts, TLP clearance, per-product subscription modes and notification channel preferences. Linked to PIRs and GIRs for ownership and delivery.</p></div>
+        <div class="card"><h3>Requirements (PIR/GIR)</h3><p>Full lifecycle editing with decision context, priority, status, scope, delivery settings and owner fields. Scope syncs with focus points and galaxy-backed categories from MISP.</p></div>
+        <div class="card"><h3>RFI workflow</h3><p>Handled from first request to closure: SLA-aware due dates, owner assignment, links to PIR or GIR, response capture and feedback tracking.</p></div>
+        <div class="card"><h3>Data collection</h3><p>A cached view of scraper and additional MISP servers. Browse events and reports, refresh the cache, flag follow-ups, create manual entries and generate LLM summary reports back into MISP.</p></div>
+        <div class="card"><h3>Newsletter import</h3><p>Turn a pasted security newsletter into a reviewable list of articles. Selected links are handed to misp-scraper; the e-mail itself is archived as its own MISP event.</p></div>
+        <div class="card"><h3>Flash Intel Alert</h3><p>Manual drafting, review queue, approval and publishing. Seed drafts from source events, build observed-fact and indicator tables, and insert action presets with one click.</p></div>
+        <div class="card"><h3>Vulnerability advisory</h3><p>The same draft, review and publish flow, with multi-CVE input, CVE-focused fields, PIR linking, expandable source-event panels and action presets.</p></div>
+        <div class="card"><h3>Daily threat briefing</h3><p>A triage queue from scraper events, guided story writing, a draft, edit and publish flow, and a notification when you publish.</p></div>
+        <div class="card"><h3>Threat landscape report</h3><p>A regular strategic product for leadership: top threats, trending threat actors, key incidents, recommendations and an outlook section, stored as MISP objects.</p></div>
+        <div class="card"><h3>Product catalogue</h3><p>A searchable catalogue of published outputs tagged as CTI products. Filter by type and linked PIR, inspect event reports and store feedback.</p></div>
+        <div class="card"><h3>Statistics &amp; CTI-CMM</h3><p>Pipeline and program views that bring together source and outcome trends, RFI and feedback KPIs, PIR coverage and MISP source health, plus a <a href="https://cti-cmm.org/" target="_blank" rel="noopener">CTI-CMM</a> maturity signal panel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed feature rows -->
+  <section class="section-tint">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">A closer look</div>
+        <h2>Complete workflows, not just screens</h2>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-media"><img src="assets/img/1-dashboard.png" alt="zsazsa dashboard" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>A live operational picture</h3>
+          <p>The dashboard gives a quick overview of the pipeline, active requirements, your stakeholders and recent processing results, so the team can see where things stand at the start of the day.</p>
+          <ul>
+            <li>Active PIR and GIR counts, and stakeholder numbers</li>
+            <li>How recently the analyser pipeline ran, plus 24-hour processing results</li>
+            <li>Pending scraper events waiting for analysis</li>
+            <li>Reference panel for Admiralty Scale, TLP and CTI evaluation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-media"><img src="assets/img/6-datacollection.png" alt="zsazsa data collection" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>Collection that flows into products</h3>
+          <p>The data collection view gives a cached feed with filters for source, tags and context, so analysts can work through large numbers of events quickly, then start a new product directly from the events they select.</p>
+          <ul>
+            <li>Cached events from scraper and additional MISP servers</li>
+            <li>CTI evaluation scoring during triage</li>
+            <li>Create a Flash Intel alert, advisory or briefing from source events</li>
+            <li>Manual collection entries for sources that aren't auto-collected</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-media"><img src="assets/img/3-pir.png" alt="zsazsa PIR management" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>Requirements that drive collection</h3>
+          <p>PIR pages capture the core intelligence questions that set collection and analysis priorities. Triage lets submitted PIRs be acknowledged, approved, deferred, rejected or merged, each with a clear note on the decision.</p>
+          <ul>
+            <li>Scope, sub-questions, ownership, distribution and collection mapping</li>
+            <li>GIRs for longer cycles, with a review schedule and expected outputs</li>
+            <li>Scope synchronised with focus points and MISP galaxies</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-media"><img src="assets/img/2-stakeholders.png" alt="zsazsa stakeholder management" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>Distribution that matches your organisation</h3>
+          <p>Stakeholders are managed locally and linked to MISP organisations. Each record supports internal or external roles, multiple contact fields, TLP clearance, product subscriptions and delivery preferences.</p>
+          <ul>
+            <li>Per-stakeholder notification channels (Mattermost, Flowintel)</li>
+            <li>Audience, subscription and TLP checks on every published product</li>
+            <li>Stakeholder matrix for accountability and delivery</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-media"><img src="assets/img/7-statistics.png" alt="zsazsa statistics" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>Metrics with maturity signals</h3>
+          <p>Statistics pages combine day-to-day metrics with CTI maturity signals. The CTI-CMM panel reads signals from your live data across five areas: Program, Situation, Analytical production, Operational delivery and Feedback.</p>
+          <ul>
+            <li>Source and outcome trends, RFI and feedback KPIs</li>
+            <li>How many products you produce, plus PIR coverage checks</li>
+            <li>CTI-CMM levels CTI0 to CTI3 with measurable gaps highlighted</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-media"><img src="assets/img/8-ai.png" alt="zsazsa AI support" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>AI help for analysts</h3>
+          <p>AI-assisted features help with triage, relevance checking and drafting. Each feature can use its own model and prompt, and because they send raw MISP content to the model, you review the output before publishing.</p>
+          <ul>
+            <li>LLM summaries of MISP reports, written back into MISP</li>
+            <li>AI-assisted drafts for Flash Intel alerts and advisories</li>
+            <li>Per-feature model and prompt configuration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-media"><img src="assets/img/5-rfi.png" alt="zsazsa RFI workflow" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>RFIs from intake to closure</h3>
+          <p>The RFI workflow runs from the first request through to closure, so one-off requests for intelligence are tracked just as carefully as your standing PIRs and GIRs.</p>
+          <ul>
+            <li>SLA-aware due dates and owner assignment</li>
+            <li>Links to the originating PIR or GIR</li>
+            <li>Response capture and feedback tracking through to closure</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>See the full feature reference</h2>
+        <p>The README documents every area, configuration tab and the MISP data model in detail.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="documentation.html" class="btn btn-light">Read the documentation</a>
+          <a href="https://github.com/cudeso/zsazsa/" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <span class="foot-brand">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+            zsazsa
+          </span>
+          <p class="foot-about">An open-source CTI program management and production platform built around MISP.</p>
+        </div>
+        <div>
+          <h4>Project</h4>
+          <a href="features.html">Features</a>
+          <a href="documentation.html">Documentation</a>
+          <a href="download.html">Download</a>
+          <a href="news.html">News</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cudeso/zsazsa/" target="_blank" rel="noopener">GitHub repository</a>
+          <a href="https://www.misp-project.org/" target="_blank" rel="noopener">MISP project</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> zsazsa project · Open source</span>
+        <span>Built on <a href="https://www.misp-project.org/" target="_blank" rel="noopener" style="display:inline;">MISP</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

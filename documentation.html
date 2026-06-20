@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation · zsazsa CTI</title>
+  <meta name="description" content="zsazsa documentation: prerequisites, installation, running the application, production deployment behind Apache, configuration and the MISP data model.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+        zsazsa <span class="sub">CTI</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="documentation.html" class="active">Documentation</a></li>
+        <li><a href="download.html">Download</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://github.com/cudeso/zsazsa/" class="gh" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="container">
+      <div class="kicker">Documentation</div>
+      <h1>Install, run and deploy zsazsa</h1>
+      <p>This guide is distilled from the project <a href="https://github.com/cudeso/zsazsa/blob/main/README.md" target="_blank" rel="noopener">README</a>. For the complete reference, including every configuration tab and data collection source type, see the README on GitHub.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="docs-layout">
+
+        <!-- TOC -->
+        <aside class="docs-toc">
+          <div class="toc-title">On this page</div>
+          <a href="#prereq">Before you install</a>
+          <a href="#install">Installation</a>
+          <a href="#run">Running the application</a>
+          <a href="#apache">Deployment behind Apache</a>
+          <a href="#config">Configuration</a>
+          <a href="#model">MISP data model</a>
+          <a href="#more">Full reference</a>
+        </aside>
+
+        <!-- Content -->
+        <div class="prose">
+          <p><strong>zsazsa</strong> is a CTI program management and production platform built around <a href="https://www.misp-project.org/" target="_blank" rel="noopener">MISP</a>. It sits on top of your MISP infrastructure and does not install MISP or <a href="https://github.com/cudeso/misp-scraper/" target="_blank" rel="noopener">misp-scraper</a> for you.</p>
+
+          <h2 id="prereq">Before you install</h2>
+          <p>zsazsa requires the following infrastructure to be in place first:</p>
+          <ul>
+            <li><strong>A MISP server to store CTI program data.</strong> Where zsazsa saves its objects: stakeholders, PIRs, GIRs, flash intel alerts, advisories, briefings and so on. This is the server you point <code class="inline">MISP_WEBAPP_URL</code> at.</li>
+            <li><strong>A MISP server running misp-scraper.</strong> The scraper feeds threat events into a MISP instance that zsazsa polls for the data collection view and analyser pipeline. This is the server you point <code class="inline">MISP_URL</code> at, and it can be the same server as above.</li>
+            <li><strong>One or more additional MISP servers (optional but recommended).</strong> Supplementary intelligence feeds configured under Collection sources, ideally partner-operated or community instances.</li>
+          </ul>
+
+          <div class="arch">
+            <div class="arch-row">
+              <div class="arch-node is-app">
+                <div class="an-title">zsazsa</div>
+                <div class="an-sub">CTI program management app</div>
+              </div>
+            </div>
+            <div class="arch-connector"></div>
+            <div class="arch-row">
+              <div class="arch-node">
+                <div class="an-title">MISP</div>
+                <div class="an-sub">Program data store · MISP_WEBAPP_URL</div>
+              </div>
+              <div class="arch-node">
+                <div class="an-title">MISP scraper</div>
+                <div class="an-sub">Collection pipeline · MISP_URL</div>
+              </div>
+            </div>
+            <p class="arch-caption">zsazsa runs on top of MISP. One MISP instance stores its program data; another, running misp-scraper, feeds the collection pipeline. The two can be the same server.</p>
+          </div>
+
+          <div class="callout"><strong>Note:</strong> Follow the official installation guides for MISP and misp-scraper first. zsazsa does not install them.</div>
+
+          <h2 id="install">Installation</h2>
+          <p>Installation is recommended inside the MISP custom application directory so it runs under the same web user as MISP. On Ubuntu this means installing as <code class="inline">www-data</code>:</p>
+          <pre><code># Create the custom app directory if it doesn't exist
+mkdir /var/www/MISP/misp-custom
+chown www-data:www-data /var/www/MISP/misp-custom
+
+cd /var/www/MISP/misp-custom
+sudo -u www-data git clone https://github.com/cudeso/zsazsa/ zsazsa
+cd zsazsa
+sudo -u www-data bash docs/install.sh</code></pre>
+          <p>The installer creates a <code class="inline">venv</code> in the project root, installs Python dependencies, prepares the data directory, and creates <code class="inline">config/__init__.py</code> if needed. After installation, edit <code class="inline">config/__init__.py</code> and set your MISP URL and API key settings.</p>
+
+          <h2 id="run">Running the application</h2>
+          <p>For local testing, start the application directly:</p>
+          <pre><code>source venv/bin/activate
+python run_webapp.py</code></pre>
+          <p>For any real deployment, run zsazsa behind a reverse proxy rather than exposing the built-in server directly. The proxy can be the same web server that already serves your MISP instance, so zsazsa lives under a subpath of your existing MISP site (for example <code class="inline">https://misp.example.com/zsazsa</code>). This is the recommended setup and is covered in <a href="#apache">Production deployment behind Apache</a> below.</p>
+          <p>The analyser pipeline runs separately, typically via cron:</p>
+          <pre><code>source venv/bin/activate
+python run_analyser.py</code></pre>
+
+          <h2 id="apache">Production deployment behind Apache</h2>
+          <p>zsazsa can be served under a subpath of the MISP Apache virtual host, for example <code class="inline">https://misp.example.com/zsazsa</code>. The application adapts to any subpath automatically.</p>
+          <p><strong>1. Keep it running with systemd.</strong> Copy the service template, then enable it. For production, bind the listener to localhost (<code class="inline">127.0.0.1</code>) in <code class="inline">run_webapp.py</code> so it is only reachable through Apache.</p>
+          <pre><code>sudo cp docs/zsazsa.service.template /etc/systemd/system/zsazsa.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now zsazsa.service</code></pre>
+          <p><strong>2. Enable required Apache modules:</strong></p>
+          <pre><code>sudo a2enmod proxy proxy_http headers
+sudo systemctl reload apache2</code></pre>
+          <p><strong>3. Add the proxy</strong> inside the existing <code class="inline">&lt;VirtualHost *:443&gt;</code> block:</p>
+          <pre><code># zsazsa CTI application
+ProxyPreserveHost On
+RequestHeader set X-Forwarded-Prefix "/zsazsa"
+RequestHeader set X-Forwarded-Proto "https"
+
+ProxyPass        /zsazsa  http://127.0.0.1:5000/
+ProxyPassReverse /zsazsa  http://127.0.0.1:5000/</code></pre>
+          <p>The value in <code class="inline">X-Forwarded-Prefix</code> must match the path used in <code class="inline">ProxyPass</code>/<code class="inline">ProxyPassReverse</code>. The application reads these headers at runtime to construct links and build correct <code class="inline">https://</code> URLs. Without a proxy, both headers are absent and the application behaves exactly as before.</p>
+
+          <h2 id="config">Configuration</h2>
+          <p>Almost all runtime settings live in <code class="inline">config/__init__.py</code>, and most can be changed from the web interface without editing the file directly. The main settings page at <code class="inline">/config</code> groups settings across eight tabs:</p>
+          <div class="table-wrap">
+            <table class="tbl">
+              <thead><tr><th>Tab</th><th>Covers</th></tr></thead>
+              <tbody>
+                <tr><td>Connections</td><td>The webapp MISP data store and the OpenAI API key</td></tr>
+                <tr><td>Products</td><td>Product type catalogue and organisation-wide focus points</td></tr>
+                <tr><td>System</td><td>Analyser window, log retention, web server host/port and TLS</td></tr>
+                <tr><td>Prompts</td><td>Prompt templates in <code class="inline">zsazsaprompts/</code></td></tr>
+                <tr><td>AI</td><td>Default model and per-feature model/prompt overrides</td></tr>
+                <tr><td>Context elements</td><td>MISP tags, markers and action presets</td></tr>
+                <tr><td>Notifications</td><td>Named webhook channels (Mattermost; Teams/Email planned)</td></tr>
+                <tr><td>Styling</td><td>Branding used in PDF exports and notifications</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Collection sources, namely the MISP scraper connection, additional MISP servers and manual sources, are managed separately at <code class="inline">/config/sources/</code>. The config file is backed up to <code class="inline">config/__init__.py.backup</code> before each save.</p>
+
+          <figure class="doc-figure">
+            <img src="assets/img/9-collectionsources.png" alt="zsazsa collection sources configuration" loading="lazy">
+            <figcaption>Collection sources are managed centrally at <code class="inline">/config/sources/</code>, including the scraper, additional MISP servers and manual sources.</figcaption>
+          </figure>
+
+          <h2 id="model">MISP data model</h2>
+          <p>Each business entity is stored as one MISP event, with data held inside a custom MISP object. Custom object templates live in <code class="inline">webapp/misp_objects/</code>.</p>
+          <div class="table-wrap">
+            <table class="tbl">
+              <thead><tr><th>Entity</th><th>MISP object</th></tr></thead>
+              <tbody>
+                <tr><td>Stakeholder</td><td><code class="inline">zsazsa-stakeholder</code></td></tr>
+                <tr><td>PIR</td><td><code class="inline">zsazsa-pir</code></td></tr>
+                <tr><td>GIR</td><td><code class="inline">zsazsa-gir</code></td></tr>
+                <tr><td>RFI</td><td><code class="inline">zsazsa-rfi</code></td></tr>
+                <tr><td>Flash Intel Alert</td><td><code class="inline">zsazsa-flash-intel</code></td></tr>
+                <tr><td>VEA</td><td><code class="inline">zsazsa-vea</code></td></tr>
+                <tr><td>Daily briefing</td><td><code class="inline">zsazsa-daily-briefing</code></td></tr>
+                <tr><td>Threat landscape report</td><td><code class="inline">zsazsa-threat-landscape-report</code></td></tr>
+                <tr><td>Collection source</td><td><code class="inline">zsazsa-collection-source</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Every entity event carries a type tag so it can be searched independently of the object. All tags in the <code class="inline">zsazsa:</code> namespace are applied as local tags, so they never sync to connected MISP instances.</p>
+
+          <figure class="doc-figure">
+            <img src="assets/img/x-misp2.png" alt="zsazsa product content and context stored in MISP" loading="lazy">
+            <figcaption>Product content and supporting context sit together in MISP, so analysts can trace from collection evidence to published output.</figcaption>
+          </figure>
+
+          <h2 id="more">Full reference</h2>
+          <p>This page covers the essentials. The complete README documents the notification and distribution flow, per-product coverage, every configuration setting, and how to create each data collection source type.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;">
+            <a href="https://github.com/cudeso/zsazsa/blob/main/README.md" class="btn btn-primary" target="_blank" rel="noopener">Read the full README</a>
+            <a href="download.html" class="btn btn-ghost">Go to download</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <span class="foot-brand">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+            zsazsa
+          </span>
+          <p class="foot-about">An open-source CTI program management and production platform built around MISP.</p>
+        </div>
+        <div>
+          <h4>Project</h4>
+          <a href="features.html">Features</a>
+          <a href="documentation.html">Documentation</a>
+          <a href="download.html">Download</a>
+          <a href="news.html">News</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cudeso/zsazsa/" target="_blank" rel="noopener">GitHub repository</a>
+          <a href="https://www.misp-project.org/" target="_blank" rel="noopener">MISP project</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> zsazsa project · Open source</span>
+        <span>Built on <a href="https://www.misp-project.org/" target="_blank" rel="noopener" style="display:inline;">MISP</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

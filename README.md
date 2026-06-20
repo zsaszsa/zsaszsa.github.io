@@ -19,36 +19,3 @@ CNAME                 Custom domain for GitHub Pages
 .nojekyll             Serve files as-is (skip Jekyll processing)
 robots.txt, sitemap.xml
 ```
-
-## Preview locally
-
-No tooling needed. Either open `index.html` directly, or serve the folder:
-
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
-
-## Hosting on GitHub Pages (recommended)
-
-Static HTML on GitHub Pages is the simplest fit: free, no build step, and it supports the `zsazsa-project.org` custom domain.
-
-1. Create a repository (for example `cudeso/zsazsa-project`) and push these files to the `main` branch.
-2. In **Settings → Pages**, set *Source* to **Deploy from a branch**, branch `main`, folder `/ (root)`.
-3. The included `CNAME` file sets the custom domain to `zsazsa-project.org`. At your DNS provider, add either:
-   - an `ALIAS`/`ANINAME` (or apex `A`) record pointing at GitHub Pages' IPs, and
-   - a `CNAME` for `www` → `<user>.github.io`.
-   GitHub's docs list the current Pages IP addresses. Once DNS resolves, tick **Enforce HTTPS**.
-4. If you do **not** want a custom domain, delete `CNAME` and the site will serve from `https://<user>.github.io/<repo>/`. In that case, because the pages use root-relative-free *relative* links, they work from a subpath as-is.
-
-> A dedicated `zsazsa-project` repo keeps the website history separate from the application repo. Alternatively, a `gh-pages` branch in the main repo also works.
-
-### Other options
-
-- **Cloudflare Pages or Netlify**: drag-and-drop or git-connected, also free for static sites, with the custom domain managed in their dashboard. Same files, no changes needed (remove `CNAME` and `.nojekyll`, which are GitHub-specific).
-
-## Updating content
-
-- **Features / docs** are hand-maintained from the zsazsa `README.md`. When the README changes materially, mirror the relevant edits here.
-- **Screenshots** live in `assets/img/` and were copied from the application's `docs/` folder. Replace them there to refresh.
-- **News** entries are added by editing `news.html`.

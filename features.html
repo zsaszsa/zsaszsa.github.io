@@ -50,7 +50,7 @@
         <div class="card"><h3>Requirements (PIR/GIR)</h3><p>Full lifecycle editing with decision context, priority, status, scope, delivery settings and owner fields. Scope syncs with focus points and galaxy-backed categories from MISP.</p></div>
         <div class="card"><h3>RFI workflow</h3><p>Handled from first request to closure: SLA-aware due dates, owner assignment, links to PIR or GIR, response capture and feedback tracking.</p></div>
         <div class="card"><h3>Data collection</h3><p>A cached view of scraper and additional MISP servers. Browse events and reports, refresh the cache, flag follow-ups, create manual entries and generate LLM summary reports back into MISP.</p></div>
-        <div class="card"><h3>Newsletter import</h3><p>Turn a pasted security newsletter into a reviewable list of articles. Selected links are handed to misp-scraper; the e-mail itself is archived as its own MISP event.</p></div>
+        <div class="card"><h3>Newsletter import</h3><p>Turn a pasted security newsletter, such as the ETDA CTI robot briefing, into a reviewable list of articles grouped by section and criticality. Selected links are handed to misp-scraper; the e-mail itself is archived as its own MISP event.</p></div>
         <div class="card"><h3>Flash Intel Alert</h3><p>Manual drafting, review queue, approval and publishing. Seed drafts from source events, build observed-fact and indicator tables, and insert action presets with one click.</p></div>
         <div class="card"><h3>Vulnerability advisory</h3><p>The same draft, review and publish flow, with multi-CVE input, CVE-focused fields, PIR linking, expandable source-event panels and action presets.</p></div>
         <div class="card"><h3>Daily threat briefing</h3><p>A triage queue from scraper events, guided story writing, a draft, edit and publish flow, and a notification when you publish.</p></div>
@@ -92,6 +92,7 @@
             <li>Cached events from scraper and additional MISP servers</li>
             <li>CTI evaluation scoring during triage</li>
             <li>Create a Flash Intel alert, advisory or briefing from source events</li>
+            <li>Import security newsletters, such as the ETDA CTI robot, into the pipeline</li>
             <li>Manual collection entries for sources that aren't auto-collected</li>
           </ul>
         </div>
@@ -116,7 +117,7 @@
           <h3>Distribution that matches your organisation</h3>
           <p>Stakeholders are managed locally and linked to MISP organisations. Each record supports internal or external roles, multiple contact fields, TLP clearance, product subscriptions and delivery preferences.</p>
           <ul>
-            <li>Per-stakeholder notification channels (Mattermost, Flowintel)</li>
+            <li>Per-stakeholder notification channels (Mattermost, e-mail, Flowintel)</li>
             <li>Audience, subscription and TLP checks on every published product</li>
             <li>Stakeholder matrix for accountability and delivery</li>
           </ul>

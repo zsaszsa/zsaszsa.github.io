@@ -2,7 +2,7 @@
 
 The public website for the open-source [zsazsa](https://github.com/cudeso/zsazsa/) CTI program management platform.
 
-It is a **static, dependency-free site**: plain HTML and one CSS file. There is no build step. Styling mirrors the zsazsa application's *UiBeta* theme (MISP-style light surfaces, `#0066cc` accent, Inter typography, the shield brand glyph).
+It is a **static, dependency-free site**: plain HTML and one CSS file.
 
 ## Structure
 

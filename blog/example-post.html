@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example post and formatting reference · zsazsa CTI</title>
+  <meta name="description" content="A reference post showing how code, images and video render. Kept hidden from the index.">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="brand">
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+        zsazsa <span class="sub">CTI</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="../features.html">Features</a></li>
+        <li><a href="../documentation.html">Documentation</a></li>
+        <li><a href="../download.html">Download</a></li>
+        <li><a href="../news.html" class="active">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="https://github.com/cudeso/zsazsa/" class="gh" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="container">
+      <div class="kicker">Blog</div>
+      <h1>Example post and formatting reference</h1>
+      <p>29 June 2026</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <article class="prose blog-post">
+<p>This post is <code>status: hidden</code>, so it does <strong>not</strong> appear on the news index, but
+its page is still built so you can preview it directly. Use it as a cheat sheet,
+then delete <code>posts/2026-06-29-example-post.md</code> when you no longer need it.</p>
+<h2>Headings, lists and text</h2>
+<p>Write normal Markdown. You get <strong>bold</strong>, <em>italic</em>, <a href="https://www.misp-project.org/">links</a>,
+<code>inline code</code>, and:</p>
+<ul>
+<li>bullet lists</li>
+<li>with multiple items</li>
+</ul>
+<ol>
+<li>and numbered</li>
+<li>lists too</li>
+</ol>
+<blockquote>
+<p>Block quotes render as a callout-style indent.</p>
+</blockquote>
+<h2>Code snippets</h2>
+<p>Fenced code blocks are syntax-highlighted at build time (no JavaScript needed).
+Add the language after the opening fence:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pymisp</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyMISP</span>
+
+<span class="n">misp</span> <span class="o">=</span> <span class="n">PyMISP</span><span class="p">(</span><span class="s2">&quot;https://misp.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;API_KEY&quot;</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">misp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;zsazsa:type=&quot;pir&quot;&#39;</span><span class="p">],</span> <span class="n">pythonify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+python<span class="w"> </span>build_blog.py
+</code></pre></div>
+
+<h2>Images</h2>
+<p>Put image files in <code>assets/img/blog/</code> and reference them with a normal
+root-relative path — the build fixes the path for the post page automatically:</p>
+<div class="codehilite"><pre><span></span><code>![<span class="nt">Alt text describing the image</span>](<span class="na">assets/img/blog/my-screenshot.png</span>)
+</code></pre></div>
+
+<h2>Video</h2>
+<p>Markdown lets you drop raw HTML straight in. For a YouTube or Vimeo clip, paste
+the embed iframe:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;video-embed&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/VIDEO_ID&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;Demo&quot;</span>
+          <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>For a self-hosted file (keep large videos out of git — prefer an embed or
+git-lfs), use a <code>&lt;video&gt;</code> tag pointing at <code>assets/img/blog/</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;assets/img/blog/demo.mp4&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</code></pre></div>
+        <p class="blog-back"><a href="../news.html">← Back to all posts</a></p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <span class="foot-brand">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+            zsazsa
+          </span>
+          <p class="foot-about">An open-source CTI program management and production platform built around MISP.</p>
+        </div>
+        <div>
+          <h4>Project</h4>
+          <a href="../features.html">Features</a>
+          <a href="../documentation.html">Documentation</a>
+          <a href="../download.html">Download</a>
+          <a href="../news.html">News</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cudeso/zsazsa/" target="_blank" rel="noopener">GitHub repository</a>
+          <a href="https://www.misp-project.org/" target="_blank" rel="noopener">MISP project</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> zsazsa project · Open source</span>
+        <span>Built on <a href="https://www.misp-project.org/" target="_blank" rel="noopener" style="display:inline;">MISP</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

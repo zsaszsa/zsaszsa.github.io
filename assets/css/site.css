@@ -576,3 +576,68 @@ table.tbl tr:last-child td { border-bottom: none; }
   .site-footer .foot-grid { grid-template-columns: 1fr; gap: 24px; }
   .post { grid-template-columns: 1fr; gap: 8px; }
 }
+
+/* ─── Blog posts ─────────────────────────────────────────────────────────── */
+.blog-post { max-width: 760px; }
+.blog-post img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 26px auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.blog-post pre { margin: 22px 0; }
+.blog-post .video-embed {
+  position: relative;
+  margin: 26px 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-dark);
+}
+.blog-post .video-embed iframe,
+.blog-post .video-embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.blog-post video { max-width: 100%; border-radius: 12px; }
+.blog-back {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-faint);
+}
+
+/* ─── Syntax highlighting (Pygments / Dracula on the dark code surface) ────── */
+.prose .codehilite { margin: 22px 0; }
+.prose .codehilite pre { margin: 0; }
+.prose .codehilite .hll { background-color: #44475a }
+.prose .codehilite .c, .prose .codehilite .ch, .prose .codehilite .cm,
+.prose .codehilite .cpf, .prose .codehilite .c1, .prose .codehilite .cs { color: #6272a4 } /* Comment */
+.prose .codehilite .cp { color: #ff79c6 } /* Comment.Preproc */
+.prose .codehilite .k, .prose .codehilite .kc, .prose .codehilite .kn,
+.prose .codehilite .kp, .prose .codehilite .kr, .prose .codehilite .o,
+.prose .codehilite .ow { color: #ff79c6 } /* Keyword / Operator */
+.prose .codehilite .kd, .prose .codehilite .kt, .prose .codehilite .nb,
+.prose .codehilite .nl, .prose .codehilite .nv, .prose .codehilite .vc,
+.prose .codehilite .vg, .prose .codehilite .vi, .prose .codehilite .vm { color: #8be9fd; font-style: italic } /* Types / builtins / vars */
+.prose .codehilite .na, .prose .codehilite .nc, .prose .codehilite .nf,
+.prose .codehilite .fm { color: #50fa7b } /* Names: attribute, class, function */
+.prose .codehilite .nt { color: #ff79c6 } /* Name.Tag */
+.prose .codehilite .m, .prose .codehilite .mb, .prose .codehilite .mf,
+.prose .codehilite .mh, .prose .codehilite .mi, .prose .codehilite .mo,
+.prose .codehilite .il { color: #ffb86c } /* Numbers */
+.prose .codehilite .s, .prose .codehilite .sa, .prose .codehilite .sb,
+.prose .codehilite .sc, .prose .codehilite .dl, .prose .codehilite .sd,
+.prose .codehilite .s2, .prose .codehilite .se, .prose .codehilite .sh,
+.prose .codehilite .si, .prose .codehilite .sx, .prose .codehilite .sr,
+.prose .codehilite .s1, .prose .codehilite .ss { color: #f1fa8c } /* Strings */
+.prose .codehilite .gd { color: #ff5555 } /* Generic.Deleted */
+.prose .codehilite .gi { color: #50fa7b } /* Generic.Inserted */
+.prose .codehilite .go { color: #99a8c7 } /* Generic.Output */
+.prose .codehilite .err { color: #f8f8f2 } /* Error */

@@ -1,0 +1,50 @@
+name: Build blog
+
+# Regenerates the blog HTML and news index whenever a post or the generator
+# changes, then commits the generated files back. The paths filter deliberately
+# excludes the generated output (blog/**, news.html) so the bot's own commit
+# does not retrigger this workflow.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts/**"
+      - "build_blog.py"
+      - "blog-requirements.txt"
+      - ".github/workflows/build-blog.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-blog
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r blog-requirements.txt
+
+      - name: Build blog
+        run: python build_blog.py
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog news.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Rebuild blog [skip ci]"
+            git push
+          fi

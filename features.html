@@ -50,11 +50,13 @@
         <div class="card"><h3>Requirements (PIR/GIR)</h3><p>Full lifecycle editing with decision context, priority, status, scope, delivery settings and owner fields. Scope syncs with focus points and galaxy-backed categories from MISP.</p></div>
         <div class="card"><h3>RFI workflow</h3><p>Handled from first request to closure: SLA-aware due dates, owner assignment, links to PIR or GIR, response capture and feedback tracking.</p></div>
         <div class="card"><h3>Data collection</h3><p>A cached view of scraper and additional MISP servers. Browse events and reports, refresh the cache, flag follow-ups, create manual entries and generate LLM summary reports back into MISP.</p></div>
-        <div class="card"><h3>Newsletter import</h3><p>Turn a pasted security newsletter, such as the ETDA CTI robot briefing, into a reviewable list of articles grouped by section and criticality. Selected links are handed to misp-scraper; the e-mail itself is archived as its own MISP event.</p></div>
+        <div class="card"><h3>Newsletter import</h3><p>Turn a security newsletter, such as the ETDA CTI robot briefing, into a reviewable list of articles grouped by section and criticality. Paste an edition by hand or let zsazsa poll a mailbox over IMAP. Selected links are handed to misp-scraper; the e-mail itself is archived as its own MISP event.</p></div>
         <div class="card"><h3>Flash Intel Alert</h3><p>Manual drafting, review queue, approval and publishing. Seed drafts from source events, build observed-fact and indicator tables, and insert action presets with one click.</p></div>
         <div class="card"><h3>Vulnerability advisory</h3><p>The same draft, review and publish flow, with multi-CVE input, CVE-focused fields, PIR linking, expandable source-event panels and action presets.</p></div>
         <div class="card"><h3>Daily threat briefing</h3><p>A triage queue from scraper events, guided story writing, a draft, edit and publish flow, and a notification when you publish.</p></div>
         <div class="card"><h3>Threat landscape report</h3><p>A regular strategic product for leadership: top threats, trending threat actors, key incidents, recommendations and an outlook section, stored as MISP objects.</p></div>
+        <div class="card"><h3>Indicator feed</h3><p>Build a PyMISP query against MISP and get the matching indicators back. Each feed has its own no-login URL for tools to pull from, and is delivered as a value list or CSV. Feeds can be linked to a threat actor profile.</p></div>
+        <div class="card"><h3>Threat actor profile</h3><p>Start from what the MISP galaxies hold about an actor, then expand it with your own investigation. Each profile builds a Diamond Model view across adversary, infrastructure, capability and victim, and can link to indicator feeds.</p></div>
         <div class="card"><h3>Product catalogue</h3><p>A searchable catalogue of published outputs tagged as CTI products. Filter by type and linked PIR, inspect event reports and store feedback.</p></div>
         <div class="card"><h3>Statistics &amp; CTI-CMM</h3><p>Pipeline and program views that bring together source and outcome trends, RFI and feedback KPIs, PIR coverage and MISP source health, plus a <a href="https://cti-cmm.org/" target="_blank" rel="noopener">CTI-CMM</a> maturity signal panel.</p></div>
       </div>
@@ -159,6 +161,32 @@
             <li>SLA-aware due dates and owner assignment</li>
             <li>Links to the originating PIR or GIR</li>
             <li>Response capture and feedback tracking through to closure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-media"><img src="assets/img/x-threatactorprofile2.png" alt="zsazsa threat actor profile with Diamond Model" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>Threat actor profiles with a Diamond Model</h3>
+          <p>Build a profile of an actor by pulling in what the MISP galaxies already hold as a first draft, then expanding it with your own knowledge and investigation.</p>
+          <ul>
+            <li>Diamond Model view across adversary, infrastructure, capability and victim</li>
+            <li>The Diamond Model image is embedded when the profile is shared</li>
+            <li>Link one or more indicator feeds to track observed infrastructure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-media"><img src="assets/img/x-indicatorfeed3.png" alt="zsazsa indicator feed with its own URL" loading="lazy"></div>
+        <div class="feature-text">
+          <h3>Indicator feeds your tools can pull</h3>
+          <p>Build a detailed query against MISP and get back the matching list of indicators, kept as a reusable PyMISP query you can copy and run elsewhere.</p>
+          <ul>
+            <li>Each feed gets its own unique URL, pulled without a login</li>
+            <li>Delivered to subscribers as a plain value list or as CSV by e-mail</li>
+            <li>Audience and TLP gated, and linkable to a threat actor profile</li>
           </ul>
         </div>
       </div>

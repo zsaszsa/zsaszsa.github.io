@@ -144,12 +144,12 @@ ProxyPassReverse /zsazsa  http://127.0.0.1:5000/</code></pre>
                 <tr><td>Prompts</td><td>Prompt templates in <code class="inline">zsazsaprompts/</code></td></tr>
                 <tr><td>AI</td><td>Default model and per-feature model/prompt overrides</td></tr>
                 <tr><td>Context elements</td><td>MISP tags, markers and action presets</td></tr>
-                <tr><td>Notifications</td><td>Named delivery channels: webhooks (Mattermost) and e-mail over SMTP (Teams planned)</td></tr>
+                <tr><td>Notifications</td><td>Named delivery channels: Mattermost webhooks, e-mail over SMTP and Flowintel instances (Teams planned)</td></tr>
                 <tr><td>Styling</td><td>Branding used in PDF exports and notifications</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Collection sources, namely the MISP scraper connection, additional MISP servers and manual sources, are managed separately at <code class="inline">/config/sources/</code>. The config file is backed up to <code class="inline">config/__init__.py.backup</code> before each save.</p>
+          <p>Collection sources, namely the MISP scraper connection, additional MISP servers, manual sources and IMAP mailboxes for automatic newsletter collection, are managed separately at <code class="inline">/config/sources/</code>. The config file is backed up to <code class="inline">config/__init__.py.backup</code> before each save.</p>
 
           <figure class="doc-figure">
             <img src="assets/img/9-collectionsources.png" alt="zsazsa collection sources configuration" loading="lazy">
@@ -170,6 +170,8 @@ ProxyPassReverse /zsazsa  http://127.0.0.1:5000/</code></pre>
                 <tr><td>VEA</td><td><code class="inline">zsazsa-vea</code></td></tr>
                 <tr><td>Daily briefing</td><td><code class="inline">zsazsa-daily-briefing</code></td></tr>
                 <tr><td>Threat landscape report</td><td><code class="inline">zsazsa-threat-landscape-report</code></td></tr>
+                <tr><td>Indicator feed</td><td><code class="inline">zsazsa-indicator-feed</code></td></tr>
+                <tr><td>Threat actor profile</td><td><code class="inline">zsazsa-threat-actor-profile</code></td></tr>
                 <tr><td>Collection source</td><td><code class="inline">zsazsa-collection-source</code></td></tr>
               </tbody>
             </table>

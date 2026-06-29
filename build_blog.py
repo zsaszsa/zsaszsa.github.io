@@ -263,15 +263,11 @@ def index_card(post: Post) -> str:
 
     summary = f"<p>{html.escape(post.summary)}</p>" if post.summary else ""
 
+    title = html.escape(post.title)
     if post.external:
-        action = (
-            f'<a href="{html.escape(post.external)}" class="btn btn-primary" '
-            'target="_blank" rel="noopener">Read the article</a>'
-        )
-    elif post.status == "draft":
-        action = f'<a href="{post.url}">Preview →</a>'
+        link = f'<a href="{html.escape(post.external)}" target="_blank" rel="noopener">{title}</a>'
     else:
-        action = f'<a href="{post.url}" class="btn btn-primary">Read more</a>'
+        link = f'<a href="{post.url}">{title}</a>'
 
     return f"""      <article class="post">
         <div>
@@ -279,9 +275,8 @@ def index_card(post: Post) -> str:
           {badge}
         </div>
         <div>
-          <h3>{html.escape(post.title)}</h3>
+          <h3>{link}</h3>
           {summary}
-          {action}
         </div>
       </article>"""
 

@@ -1,6 +1,6 @@
 # zsazsa-project website
 
-The public website for the open-source [zsazsa](https://github.com/cudeso/zsazsa/) CTI program management platform.
+The public website for the open-source [zsazsa](https://github.com/zsazsa-project/zsazsa) CTI program management platform.
 
 It is a **static, dependency-free site**: plain HTML and one CSS file.
 

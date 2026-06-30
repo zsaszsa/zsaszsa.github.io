@@ -26,7 +26,7 @@
         <li><a href="download.html">Download</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="https://github.com/cudeso/zsazsa/" class="gh" target="_blank" rel="noopener">
+        <li><a href="https://github.com/zsazsa-project/zsazsa" class="gh" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
           GitHub</a></li>
       </ul>
@@ -37,7 +37,7 @@
     <div class="container">
       <div class="kicker">Documentation</div>
       <h1>Install, run and deploy zsazsa</h1>
-      <p>This guide is distilled from the project <a href="https://github.com/cudeso/zsazsa/blob/main/README.md" target="_blank" rel="noopener">README</a>. For the complete reference, including every configuration tab and data collection source type, see the README on GitHub.</p>
+      <p>This guide is distilled from the project <a href="https://github.com/zsazsa-project/zsazsa/blob/main/README.md" target="_blank" rel="noopener">README</a>. For the complete reference, including every configuration tab and data collection source type, see the README on GitHub.</p>
     </div>
   </header>
 
@@ -99,7 +99,7 @@ mkdir /var/www/MISP/misp-custom
 chown www-data:www-data /var/www/MISP/misp-custom
 
 cd /var/www/MISP/misp-custom
-sudo -u www-data git clone https://github.com/cudeso/zsazsa/ zsazsa
+sudo -u www-data git clone https://github.com/zsazsa-project/zsazsa/ zsazsa
 cd zsazsa
 sudo -u www-data bash docs/install.sh</code></pre>
           <p>The installer creates a <code class="inline">venv</code> in the project root, installs Python dependencies, prepares the data directory, and creates <code class="inline">config/__init__.py</code> if needed. After installation, edit <code class="inline">config/__init__.py</code> and set your MISP URL and API key settings.</p>
@@ -187,7 +187,7 @@ ProxyPassReverse /zsazsa  http://127.0.0.1:5000/</code></pre>
           <h2 id="more">Full reference</h2>
           <p>This page covers the essentials. The complete README documents the notification and distribution flow, per-product coverage, every configuration setting, and how to create each data collection source type.</p>
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;">
-            <a href="https://github.com/cudeso/zsazsa/blob/main/README.md" class="btn btn-primary" target="_blank" rel="noopener">Read the full README</a>
+            <a href="https://github.com/zsazsa-project/zsazsa/blob/main/README.md" class="btn btn-primary" target="_blank" rel="noopener">Read the full README</a>
             <a href="download.html" class="btn btn-ghost">Go to download</a>
           </div>
         </div>
@@ -215,7 +215,7 @@ ProxyPassReverse /zsazsa  http://127.0.0.1:5000/</code></pre>
         </div>
         <div>
           <h4>Resources</h4>
-          <a href="https://github.com/cudeso/zsazsa/" target="_blank" rel="noopener">GitHub repository</a>
+          <a href="https://github.com/zsazsa-project/zsazsa" target="_blank" rel="noopener">GitHub repository</a>
           <a href="https://www.misp-project.org/" target="_blank" rel="noopener">MISP project</a>
           <a href="contact.html">Contact</a>
         </div>

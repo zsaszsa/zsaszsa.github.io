@@ -2,31 +2,7 @@
 """Static blog generator for the zsazsa site.
 
 Reads Markdown posts from ``posts/``, writes one static HTML page per post
-into ``blog/``, and regenerates ``news.html`` as the index. It reuses the
-site's existing chrome (nav, footer) and CSS (``assets/css/site.css``) — no
-framework and no client-side rendering, so the output is plain static HTML
-that matches the hand-built pages.
-
-Usage:   python build_blog.py
-Deps:    pip install -r blog-requirements.txt   (markdown, pygments, pyyaml)
-
-Authoring a post: drop a Markdown file in ``posts/`` named
-``YYYY-MM-DD-some-slug.md`` with a small front matter block:
-
-    ---
-    title: Turning a CVE into a vulnerability advisory
-    date: 2026-07-15
-    summary: One-line teaser shown on the news index.
-    status: published        # published | draft | hidden
-    # external: https://...  # optional: link out instead of building a page
-    ---
-
-    # Markdown body here
-
-    Reference images as ``assets/img/blog/your-image.png`` (the generator
-    fixes the relative path for the post page automatically). Code fences are
-    syntax-highlighted at build time. For video, paste a raw <video> or
-    <iframe> tag straight into the Markdown.
+into ``blog/``, and regenerates ``news.html`` as the index. 
 """
 from __future__ import annotations
 
@@ -44,7 +20,7 @@ POSTS_DIR = ROOT / "posts"
 BLOG_DIR = ROOT / "blog"
 NEWS_FILE = ROOT / "news.html"
 
-GITHUB_URL = "https://github.com/cudeso/zsazsa/"
+GITHUB_URL = "https://github.com/zsazsa-project/zsazsa"
 MISP_URL = "https://www.misp-project.org/"
 
 GH_ICON = (

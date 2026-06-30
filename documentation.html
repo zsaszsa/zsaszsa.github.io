@@ -111,7 +111,8 @@ python run_webapp.py</code></pre>
           <p>For any real deployment, run zsazsa behind a reverse proxy rather than exposing the built-in server directly. The proxy can be the same web server that already serves your MISP instance, so zsazsa lives under a subpath of your existing MISP site (for example <code class="inline">https://misp.example.com/zsazsa</code>). This is the recommended setup and is covered in <a href="#apache">Production deployment behind Apache</a> below.</p>
           <p>The analyser pipeline runs separately, typically via cron:</p>
           <pre><code>source venv/bin/activate
-python run_analyser.py</code></pre>
+python run_analyser.py
+python run_imap_collector.py</code></pre>
 
           <h2 id="apache">Production deployment behind Apache</h2>
           <p>zsazsa can be served under a subpath of the MISP Apache virtual host, for example <code class="inline">https://misp.example.com/zsazsa</code>. The application adapts to any subpath automatically.</p>
@@ -166,7 +167,7 @@ ProxyPassReverse /zsazsa  http://127.0.0.1:5000/</code></pre>
                 <tr><td>PIR</td><td><code class="inline">zsazsa-pir</code></td></tr>
                 <tr><td>GIR</td><td><code class="inline">zsazsa-gir</code></td></tr>
                 <tr><td>RFI</td><td><code class="inline">zsazsa-rfi</code></td></tr>
-                <tr><td>Flash Intel Alert</td><td><code class="inline">zsazsa-flash-intel</code></td></tr>
+                <tr><td>Flash intel alert</td><td><code class="inline">zsazsa-flash-intel</code></td></tr>
                 <tr><td>VEA</td><td><code class="inline">zsazsa-vea</code></td></tr>
                 <tr><td>Daily briefing</td><td><code class="inline">zsazsa-daily-briefing</code></td></tr>
                 <tr><td>Threat landscape report</td><td><code class="inline">zsazsa-threat-landscape-report</code></td></tr>
